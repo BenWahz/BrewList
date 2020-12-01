@@ -24,4 +24,14 @@ class BrewerStore {
             createItem()
         }
     }
+    
+    func removeBrewer(_ brewer: Brewer)
+    {
+        if let index = allBrewers.index(of: brewer)
+        {
+            allBrewers.remove(at: index)
+        }
+    }
 }
+
+

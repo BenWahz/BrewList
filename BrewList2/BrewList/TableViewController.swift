@@ -54,6 +54,28 @@ class TableViewController: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let brewer = brewerStore.allBrewers[indexPath.row]
+            
+            let title = "Delete \(brewer.name)?"
+            let messaget = "Are you sure you want to delete this item?"
+            let ac = UIAlertController(title: title, message: messaget, preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+                self.brewerStore.removeBrewer(brewer)
+                //self.brewerStore.deleteImage(forKey: brewer.itemKey)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            })
+            ac.addAction(deleteAction)
+            
+            present(ac, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func addNewBrewer(_ sender: UIButton) {
         // Make a new index path for the 0th section, last row
         // Create a new item and add it to the store
@@ -80,5 +102,7 @@ class TableViewController: UITableViewController {
             setEditing(true, animated: true)
          }
     }
+    
+    
     
 }
