@@ -31,8 +31,14 @@ class TableViewController: UITableViewController {
     var brewerStore: BrewerStore!
     
     
-    
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         // Get the height of the status bar
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 65
+        tableView.rowHeight = 65
+        
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -41,9 +47,15 @@ class TableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BrewerCell", for: indexPath) as! BrewerCell
         
-        cell.textLabel?.text = brewerStore.allBrewers[indexPath.row].name
+        let brewer = brewerStore.allBrewers[indexPath.row]
+        
+        cell.nameLabel.text = brewer.name
+        cell.subLabel.text = brewer.location
+        cell.starsLabel.text = String(brewer.starRating) + " Star"
+        
+        //cell.textLabel?.text = brewerStore.allBrewers[indexPath.row].name
         return cell
     }
     

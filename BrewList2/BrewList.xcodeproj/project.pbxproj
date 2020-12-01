@@ -18,6 +18,7 @@
 		8E263DF4255DFE6200752E6F /* BrewListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E263DF3255DFE6200752E6F /* BrewListTests.swift */; };
 		8E263DFF255DFE6200752E6F /* BrewListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E263DFE255DFE6200752E6F /* BrewListUITests.swift */; };
 		8E263E10255DFF0E00752E6F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E263E0F255DFF0E00752E6F /* TableViewController.swift */; };
+		8E470AC925760CF2004F2682 /* BrewerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E470AC825760CF2004F2682 /* BrewerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8E263DFE255DFE6200752E6F /* BrewListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewListUITests.swift; sourceTree = "<group>"; };
 		8E263E00255DFE6200752E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E263E0F255DFF0E00752E6F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		8E470AC825760CF2004F2682 /* BrewerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				8E263DDE255DFE6100752E6F /* SceneDelegate.swift */,
 				8E263DE0255DFE6100752E6F /* ViewController.swift */,
 				8E263E0F255DFF0E00752E6F /* TableViewController.swift */,
+				8E470AC825760CF2004F2682 /* BrewerCell.swift */,
 				8E162C192571CB68007CF504 /* Brewer.swift */,
 				8E162C1E2571CB80007CF504 /* BrewerStore.swift */,
 				8E263DE2255DFE6100752E6F /* Main.storyboard */,
@@ -273,6 +276,7 @@
 				8E162C1A2571CB68007CF504 /* Brewer.swift in Sources */,
 				8E263DDF255DFE6100752E6F /* SceneDelegate.swift in Sources */,
 				8E263E10255DFF0E00752E6F /* TableViewController.swift in Sources */,
+				8E470AC925760CF2004F2682 /* BrewerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
