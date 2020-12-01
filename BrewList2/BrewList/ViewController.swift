@@ -8,10 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-     
-    @IBOutlet weak var brewerTitleLabel: UILabel!
     
+    @IBOutlet weak var brewerTitleLabel: UILabel!
     @IBOutlet weak var brewerDescLabel: UILabel!
     
     
@@ -20,6 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         brewerTitleLabel.text = brewerNames[myIndex]
         brewerDescLabel.text = brewerDesc[myIndex]
+        self.title = brewerNames[myIndex]
         
     }
 

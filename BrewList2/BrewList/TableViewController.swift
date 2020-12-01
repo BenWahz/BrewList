@@ -28,18 +28,22 @@ class TableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-  
-
+    var brewerStore: BrewerStore!
+    
+    
+    
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return brewerNames.count
+        return brewerStore.allBrewers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        cell.textLabel?.text = brewerNames[indexPath.row]
+        
+        cell.textLabel?.text = brewerStore.allBrewers[indexPath.row].name
         return cell
     }
     
@@ -48,5 +52,33 @@ class TableViewController: UITableViewController {
         myIndex = indexPath.row
         performSegue(withIdentifier: "segue", sender: self)
     }
-
+    
+    
+    @IBAction func addNewBrewer(_ sender: UIButton) {
+        // Make a new index path for the 0th section, last row
+        // Create a new item and add it to the store
+        let newItem = brewerStore.createItem()
+        // Figure out where that item is in the array
+        if let index = brewerStore.allBrewers.index(of: newItem) {
+        let indexPath = IndexPath(row: index, section: 0)
+        // Insert this new row into the table
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    @IBAction func toggleEditMode(_ sender: UIButton) {
+        if isEditing
+        {
+            // Change text of button to inform user of state
+            sender.setTitle("Edit", for: .normal)
+            // Turn off editing mode
+            setEditing(false, animated: true)
+         } else {
+            // Change text of button to inform user of state
+            sender.setTitle("Done", for: .normal)
+            // Enter editing mode
+            setEditing(true, animated: true)
+         }
+    }
+    
 }
