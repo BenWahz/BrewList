@@ -100,6 +100,13 @@ class TableViewController: UITableViewController {
             preconditionFailure("Unexpected segue identifier.")
         }
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     @IBAction func addNewBrewer(_ sender: UIButton) {
         // Make a new index path for the 0th section, last row
         // Create a new item and add it to the store
