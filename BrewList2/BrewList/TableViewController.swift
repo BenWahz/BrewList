@@ -62,7 +62,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
-        performSegue(withIdentifier: "segue", sender: self)
+        performSegue(withIdentifier: "showBrewer", sender: self)
     }
     
     
@@ -88,6 +88,18 @@ class TableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showBrewer"?:
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let brewer = brewerStore.allBrewers[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.brewer = brewer
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
     @IBAction func addNewBrewer(_ sender: UIButton) {
         // Make a new index path for the 0th section, last row
         // Create a new item and add it to the store
@@ -114,6 +126,8 @@ class TableViewController: UITableViewController {
             setEditing(true, animated: true)
          }
     }
+    
+    
     
     
     

@@ -11,7 +11,7 @@
 		8E162C1F2571CB80007CF504 /* BrewerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E162C1E2571CB80007CF504 /* BrewerStore.swift */; };
 		8E263DDD255DFE6100752E6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E263DDC255DFE6100752E6F /* AppDelegate.swift */; };
 		8E263DDF255DFE6100752E6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E263DDE255DFE6100752E6F /* SceneDelegate.swift */; };
-		8E263DE1255DFE6100752E6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E263DE0255DFE6100752E6F /* ViewController.swift */; };
+		8E263DE1255DFE6100752E6F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E263DE0255DFE6100752E6F /* DetailViewController.swift */; };
 		8E263DE4255DFE6100752E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E263DE2255DFE6100752E6F /* Main.storyboard */; };
 		8E263DE6255DFE6200752E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E263DE5255DFE6200752E6F /* Assets.xcassets */; };
 		8E263DE9255DFE6200752E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E263DE7255DFE6200752E6F /* LaunchScreen.storyboard */; };
@@ -44,7 +44,7 @@
 		8E263DD9255DFE6100752E6F /* BrewList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrewList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E263DDC255DFE6100752E6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E263DDE255DFE6100752E6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8E263DE0255DFE6100752E6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8E263DE0255DFE6100752E6F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8E263DE3255DFE6100752E6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E263DE5255DFE6200752E6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E263DE8255DFE6200752E6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			children = (
 				8E263DDC255DFE6100752E6F /* AppDelegate.swift */,
 				8E263DDE255DFE6100752E6F /* SceneDelegate.swift */,
-				8E263DE0255DFE6100752E6F /* ViewController.swift */,
+				8E263DE0255DFE6100752E6F /* DetailViewController.swift */,
 				8E263E0F255DFF0E00752E6F /* TableViewController.swift */,
 				8E470AC825760CF2004F2682 /* BrewerCell.swift */,
 				8E162C192571CB68007CF504 /* Brewer.swift */,
@@ -270,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E263DE1255DFE6100752E6F /* ViewController.swift in Sources */,
+				8E263DE1255DFE6100752E6F /* DetailViewController.swift in Sources */,
 				8E263DDD255DFE6100752E6F /* AppDelegate.swift in Sources */,
 				8E162C1F2571CB80007CF504 /* BrewerStore.swift in Sources */,
 				8E162C1A2571CB68007CF504 /* Brewer.swift in Sources */,

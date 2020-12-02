@@ -11,6 +11,13 @@ import UIKit
 class BrewerStore {
     var allBrewers = [Brewer]()
 
+    let brewerArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("brewers.archive")
+    }()
+
+    
     @discardableResult func createItem() -> Brewer {
         let newBrewer = Brewer(random: true)
         allBrewers.append(newBrewer)
@@ -19,10 +26,14 @@ class BrewerStore {
     
     init()
     {
-        for _ in 0..<5
-        {
-            createItem()
+        if let archivedItems =
+            NSKeyedUnarchiver.unarchiveObject(withFile: brewerArchiveURL.path) as? [Brewer] {
+            allBrewers = archivedItems
         }
+//        for _ in 0..<5
+//        {
+//            createItem()
+//        }
     }
     
     func removeBrewer(_ brewer: Brewer)
@@ -32,6 +43,13 @@ class BrewerStore {
             allBrewers.remove(at: index)
         }
     }
+    
+    func saveChanges() -> Bool {
+        print("Saving items to: \(brewerArchiveURL.path)")
+        return NSKeyedArchiver.archiveRootObject(allBrewers, toFile: brewerArchiveURL.path)
+    }
+    
+    
 }
 
 
