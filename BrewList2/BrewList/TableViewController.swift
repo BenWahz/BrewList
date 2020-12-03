@@ -31,11 +31,6 @@ class TableViewController: UITableViewController {
     var brewerStore = BrewerStore()
     
     
-//    required init?(coder aDecoder: NSCoder) {
-//            super.init(coder: aDecoder)
-//            //navigationItem.leftBarButtonItem = editButtonItem
-//        }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +56,7 @@ class TableViewController: UITableViewController {
         cell.subLabel?.text = brewer.location
         cell.starsLabel?.text = brewer.starRating
         
-        //cell.textLabel?.text = brewerStore.allBrewers[indexPath.row].name
+        
         return cell
     }
     

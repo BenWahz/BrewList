@@ -69,9 +69,3 @@ class Brewer: NSObject, NSCoding, Codable {
     
 }
 
-//extension Brewer: Equatable {
-//
-//    static func ==(lhs: Brewer, rhs: Brewer) -> Bool {
-//        return lhs.brewerKey == rhs.brewerKey
-//    }
-//}

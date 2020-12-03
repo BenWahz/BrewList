@@ -16,12 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
     
         brewerStore = BrewerStore()
-        //let brewerStore = BrewerStore()
-        //let navController = window?.rootViewController as! UINavigationController
-        //let tableViewController = navController.topViewController as! TableViewController
-                
-        //tableViewController.brewerStore = brewerStore
-        //tableViewController.brewerStore = brewerStore
+        
         return true
     }
 
@@ -40,12 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-//        let success = brewerStore.saveChanges()
-//        if (success) {
-//            print("Saved all of the Items")
-//        } else {
-//            print("Could not save any of the Items")
-//        }
         brewerStore.saveChanges()
         
     }

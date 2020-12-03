@@ -55,10 +55,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         view.endEditing(true)
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
     
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
