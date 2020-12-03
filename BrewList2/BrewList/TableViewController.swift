@@ -28,13 +28,13 @@ class TableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    var brewerStore: BrewerStore!
+    var brewerStore = BrewerStore()
     
     
-    required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-            //navigationItem.leftBarButtonItem = editButtonItem
-        }
+//    required init?(coder aDecoder: NSCoder) {
+//            super.init(coder: aDecoder)
+//            //navigationItem.leftBarButtonItem = editButtonItem
+//        }
     
     
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ class TableViewController: UITableViewController {
         
         cell.nameLabel?.text = brewer.name
         cell.subLabel?.text = brewer.location
-        cell.starsLabel?.text = brewer.starRating! + " Star"
+        cell.starsLabel?.text = brewer.starRating
         
         //cell.textLabel?.text = brewerStore.allBrewers[indexPath.row].name
         return cell
@@ -76,7 +76,7 @@ class TableViewController: UITableViewController {
         if editingStyle == .delete {
             let brewer = brewerStore.allBrewers[indexPath.row]
             
-            let title = "Delete \(brewer.name!)?"
+            let title = "Delete \(brewer.name)?"
             let messaget = "Are you sure you want to delete this item?"
             let ac = UIAlertController(title: title, message: messaget, preferredStyle: .actionSheet)
             
@@ -118,10 +118,10 @@ class TableViewController: UITableViewController {
         // Create a new item and add it to the store
         let newItem = brewerStore.createItem()
         // Figure out where that item is in the array
-        if let index = brewerStore.allBrewers.index(of: newItem) {
-        let indexPath = IndexPath(row: index, section: 0)
+        if let index = brewerStore.allBrewers.firstIndex(of: newItem) {
+            let indexPath = IndexPath(row: index, section: 0)
         // Insert this new row into the table
-        tableView.insertRows(at: [indexPath], with: .automatic)
+            tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
     

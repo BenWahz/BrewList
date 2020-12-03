@@ -17,20 +17,18 @@ class BrewerStore {
         return documentDirectory.appendingPathComponent("brewers.plist")
     }()
     
-    init()
-    {
-        if let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: brewerArchiveURL.path) as? [Brewer]{
-                    allBrewers=archivedItems
+
+    init() {
+        do {
+            let data = try Data(contentsOf: brewerArchiveURL)
+            if let archivedData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Brewer] {
+                    allBrewers = archivedData
                 }
-//        if let data = try? Data(contentsOf: brewerArchiveURL),
-//            let archivedBrewers = try? PropertyListDecoder().decode(Array<Brewer>.self, from: data){
-//            allBrewers = archivedBrewers
-//                }
-//        for _ in 0..<5
-//        {
-//            createItem()
-//        }
+            } catch {
+                allBrewers = []
+        }
     }
+
     
     @discardableResult func createItem() -> Brewer {
         let newBrewer = Brewer(random: true)
@@ -46,15 +44,15 @@ class BrewerStore {
         }
     }
     
-    func saveChanges() {
-        print("Saving items to: \(brewerArchiveURL.path)")
-        let archivedBrewers = try? PropertyListEncoder().encode(allBrewers)
+    func saveChanges() -> Bool {
         do {
-            try archivedBrewers?.write(to: brewerArchiveURL, options: .noFileProtection)
-            print("Saved all brewers the Brewers.plist")
-        } catch {
-            print("Could not save any of the Items")
+            let data = try NSKeyedArchiver.archivedData(withRootObject: allBrewers, requiringSecureCoding: false)
+            try data.write(to: brewerArchiveURL)
+                return true
+            } catch {
+                return false
         }
+        
     }
     
     
