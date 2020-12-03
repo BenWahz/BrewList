@@ -9,7 +9,16 @@ import UIKit
 
 class BrewerCell: UITableViewCell
 {
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var subLabel: UILabel!
-    @IBOutlet var starsLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var subLabel: UILabel!
+    @IBOutlet weak var starsLabel: UILabel!
+    
+    override func awakeFromNib() {
+            super.awakeFromNib()
+            
+            nameLabel.adjustsFontForContentSizeCategory = true
+            subLabel.adjustsFontForContentSizeCategory = true
+            starsLabel.adjustsFontForContentSizeCategory = true
+        }
+    
 }

@@ -30,6 +30,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         super.viewWillDisappear(animated)
         // "Save" changes to item
         view.endEditing(true)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        //            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //            //tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         brewer.name = nameOutlet.text ?? ""
         brewer.location = locationOutlet.text ?? ""
         brewer.desc = descriptionOutlet.text ?? ""
@@ -40,19 +45,20 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
             //tap.cancelsTouchesInView = false
             view.addGestureRecognizer(tap)
     }
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        brewerStore.saveChanges()
         view.endEditing(true)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
     
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
